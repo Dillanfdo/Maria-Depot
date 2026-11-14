@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/*
+  Theme tokens. Tailwind CSS v4 reads this file as the design configuration
+  (the successor to tailwind.config.js).
+*/
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-burgundy: #3b0a2a;
+  --color-burgundy-deep: #2a0a3d;
+  --color-burgundy-mid: #4a1236;
+  --color-gold: #c9a24b;
+  --color-gold-light: #e6cf8b;
+  --color-gold-dark: #a57c1f;
+  --color-gold-ink: #6b4e10;
+  --color-ivory: #faf6ee;
+  --color-ivory-deep: #f3ead7;
+  --color-charcoal: #1c1917;
+  --color-stone: #57534e;
+  --color-line: #e7dcc4;
+  --font-display: var(--font-cinzel), "Palatino Linotype", Palatino, serif;
+  --font-body: var(--font-lora), Georgia, "Times New Roman", serif;
+  --shadow-soft: 0 22px 50px -28px rgb(28 25 23 / 0.45);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  color-scheme: light;
+  --background: #faf6ee;
+  --foreground: #1c1917;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #c9a24b;
+  color: #1c1917;
+}
+
+:focus-visible {
+  outline: 2px solid #a57c1f;
+  outline-offset: 3px;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.bg-damask {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='%23C9A24B' stroke-width='0.7'%3E%3Cpath d='M70 12v116M12 70h116'/%3E%3Ccircle cx='70' cy='70' r='18'/%3E%3Cpath d='M70 34c10 12 10 20 0 30-10-10-10-18 0-30zM70 106c10-12 10-20 0-30-10 10-10 18 0 30zM34 70c12-10 20-10 30 0-10 10-18 10-30 0zM106 70c-12-10-20-10-30 0 10 10 18 10 30 0z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 140px 140px;
+}
+
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9a24b, transparent);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #a57c1f;
 }
